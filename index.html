@@ -1,115 +1,54 @@
 <!doctype html>
-
-<!--
-
-    Welcome to the light side of the source, young padawan.
-
-    One step closer to learn something interesting you are...
-
-                               ____                  
-                            _.' :  `._               
-                        .-.'`.  ;   .'`.-.           
-               __      / : ___\ ;  /___ ; \      __  
-             ,'_ ""--.:__;".-.";: :".-.":__;.--"" _`,
-             :' `.t""--.. '<@.`;_  ',@:` ..--""j.' `;
-                  `:-.._J '-.-'L__ `-- ' L_..-;'     
-                    "-.__ ;  .-"  "-.  : __.-"       
-                        L ' /.------.\ ' J           
-                         "-.   "--"   .-"            
-                        __.l"-:_JL_;-";.__           
-                     .-j/'.;  ;""""  / .'\"-.        
-                   .' /:`. "-.:     .-" .';  `.      
-                .-"  / ;  "-. "-..-" .-"  :    "-.   
-             .+"-.  : :      "-.__.-"      ;-._   \  
-             ; \  `.; ;                    : : "+. ; 
-             :  ;   ; ;                    : ;  : \: 
-             ;  :   ; :                    ;:   ;  : 
-            : \  ;  :  ;                  : ;  /  :: 
-            ;  ; :   ; :                  ;   :   ;: 
-            :  :  ;  :  ;                : :  ;  : ; 
-            ;\    :   ; :                ; ;     ; ; 
-            : `."-;   :  ;              :  ;    /  ; 
-             ;    -:   ; :              ;  : .-"   : 
-             :\     \  :  ;            : \.-"      : 
-              ;`.    \  ; :            ;.'_..--  / ; 
-              :  "-.  "-:  ;          :/."      .'  :
-               \         \ :          ;/  __        :
-                \       .-`.\        /t-""  ":-+.   :
-                 `.  .-"    `l    __/ /`. :  ; ; \  ;
-                   \   .-" .-"-.-"  .' .'j \  /   ;/ 
-                    \ / .-"   /.     .'.' ;_:'    ;  
-                     :-""-.`./-.'     /    `.___.'   
-                           \ `t  ._  /               
-                            "-.t-._:'                
-
--->
-
-<!--
-    
-    So you'd like to know how to use impress.js?
-    
-    You've made the first, very important step -- you're reading the source code.
-    And that's how impress.js presentations are built -- with HTML and CSS code.
-    
-    Believe me, you need quite decent HTML and CSS skills to be able to use impress.js effectively.
-    And what is even more important, you need to be a designer, too, because there are no default
-    styles for impress.js presentations, there is no default or automatic layout for them.
-    
-    You need to design and build it by hand.
-    
-    So...
-    
-    Would you still like to know how to use impress.js?
-    
--->
-
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=1024" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
-    
-    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
-    <meta name="author" content="Bartek Szopka" />
+    <title>How to tackle the hot new shit in an accessible way</title>
 
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <meta name="author" content="Eric Eggert" />
 
     <!--
-        
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    -->
+    <!--
+
         Impress.js doesn't depend on any external stylesheet. Script adds all styles it needs for
         presentation to work.
-        
+
         This style below contains styles only for demo presentation. Browse it to see how impress.js
         classes are used to style presentation steps, or how to apply fallback styles, but I don't want
         you to use them directly in your presentation.
-        
+
         Be creative, build your own. We don't really want all impress.js presentations to look the same,
         do we?
-        
+
         When creating your own presentation get rid of this file. Start from scratch, it's fun!
-        
+
     -->
-    <link href="css/impress-demo.css" rel="stylesheet" />
-    
+    <link href="css/tackle.css" rel="stylesheet" />
+
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+    <script type="text/javascript" src="http://use.typekit.com/aav4oxg.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
 
 <!--
-    
+
     That's the wrapper for your presentation steps. In this element all the impress.js magic happens.
     It doesn't have to be a `<div>`. Only `id` is important here as that's how the script find it.
-    
+
     It's worth to notice the `impress-not-supported` class. This class means, that browser doesn't
     support features required by impress.js, so you can apply some fallback styles in your CSS.
     It's not necessary to add it manually on this element. If the script detects that browser is not
     good enough it will add this class, but keeping it in HTML means that users without JavaScript
     will also get fallback styles.
-    
+
     The class name on this element also depends on currently active presentation step. More details about
     it can be found below, when `hint` element is being described.
-    
+
 -->
 <div id="impress" class="impress-not-supported">
 
@@ -119,102 +58,575 @@
     </div>
 
     <!--
-        
-        Here is where interesting thing start to happen.
-        
-        Each step of the presentation should be an element inside the `#impress` with a class name
-        of `step`. These step elements are positioned, rotated and scaled by impress.js, and
-        the 'camera' shows them on each step of the presentation.
-        
-        Positioning information is passed through data attributes.
-        
-        In the example below we only specify x and y position of the step element with `data-x="-1000"`
-        and `data-y="-1500` attributes. This means that **the center** of the element (yes, the center)
-        will be positioned in point x = -1000px and y = -1500px of the presentation 'canvas'.
-        
-        It will not be rotated or scaled.
-        
-    -->
-    <div id="bored" class="step slide" data-x="-1000" data-y="-1500">
-        <q>Aren't you just <b>bored</b> with all those slides-based presentations?</q>
-    </div>
 
-    <!--
-        
-        The `id` attribute of the step element is used to identify it in the URL, but it's optional.
-        If it is not defined, it will get a default value of `step-N` where N is a number of slide.
-        
-        So in the example below it'll be `step-2`.
-        
-        The hash part of the url when this step is active will be `#/step-2`.
-        
-        You can also use `#step-2` in a link, to point directly to this particular step.
-        
-        Please note, that while `#/step-2` (with slash) would also work in a link it's not recommended.
-        Using classic `id`-based links like `#step-2` makes these links usable also in fallback mode.
-        
-    -->
-    <div class="step slide" data-x="0" data-y="-1500">
-        <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
-    </div>
-
-    <div class="step slide" data-x="1000" data-y="-1500">
-        <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
-    </div>
-
-    <!--
-        
         This is an example of step element being scaled.
-        
+
         Again, we use a `data-` attribute, this time it's `data-scale="4"`, so it means that this
         element will be 4 times larger than the others.
         From presentation and transitions point of view it means, that it will have to be scaled
         down (4 times) to make it back to it's correct size.
-        
+
     -->
-    <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
-        <span class="try">then you should try</span>
-        <h1>impress.js<sup>*</sup></h1>
-        <span class="footnote"><sup>*</sup> no rhyme intended</span>
+
+    <div id="slidezero" class="step" data-x="-1500" data-y="0" data-z="0" data-scale=".5" data-rotate="0">
+        <p>Tweet with this hashtag:</p>
+        <p class="huge taglike wippen">#a11yfu</p>
     </div>
+
+    <div id="title" class="step" data-x="0" data-y="0" data-z="0" data-scale="1" data-rotate="0">
+        <h1>
+            <span class="line one">How to <strong>tackle</strong> the</span>
+            <span class="line two"><strong>hot new shit</strong> in an</span>
+            <span class="line three"><strong>accessible</strong> way</span>
+        </h1>
+        <p class="meta">
+            <span class="autor">Eric Eggert</span> @ <span>FrontendUnited 2012</span>
+        </p>
+    </div>
+
+    <div id="aboutme" class="step" data-x="1000" data-y="0" data-scale="1">
+        <h2>Eric Eggert</h2>
+        <ul>
+            <li><i class="icon-twitter-sign"></i>@yatil</li>
+            <li><i class="icon-external-link"></i>yatil.net</li>
+            <li><i class="icon-flag"></i>outline – we web.</li>
+            <li><i class="icon-home"></i>Essen, Germany</li>
+        </ul>
+    </div>
+
+    <div id="drupal" class="step drupal" data-x="1000" data-y="-1000" data-scale="1">
+        <h2><img src="img/druplicon.svg" alt="" width="100"> Drupal</h2>
+        <ul>
+            <li>Front- and Backend accessible</li>
+            <li><a href="http://drupal.org/about/accessibility">Accessibility Statement</a></li>
+        </ul><!-- / -->
+    </div>
+
+    <div id="a11ystatement" class="step drupal" data-x="1000" data-y="-2000" data-scale="1">
+        <blockquote><p>As an inclusive community, we are committed to making sure that Drupal is an accessible tool for building websites and that Drupal helps you create websites that are themselves accessible.</p></blockquote>
+    </div>
+
+    <div id="modules" class="step drupal" data-x="1000" data-y="-3000" data-scale="1">
+        <h2>Research your modules wisely.</h2>
+        <img src="img/planahead.jpg" width="400" alt="">
+    </div>
+
+    <div id="raisehands" class="step" data-x="1000" data-y="1000" data-rotate="0" data-scale="1">
+        <h2 class="small">Who of you could imagine to live without the internet?</h2>
+        <img src="img/raisehands.jpg" alt="Gloves in the snow, a sign saying “If you have had enough cold and snow, please… raise your hand”.">
+    </div>
+
+    <div id="stats1" class="step" data-x="1000" data-y="2000" data-rotate="0" data-scale="1">
+        <h2><span class="huge">52.5%</span><br>of people at the age 50+ are using the internet*</h2>
+        <aside class="footnote">*ARD/ZDF Nonliner-Studie 2011</aside>
+    </div>
+
+    <div id="stats2" class="step" data-x="1000" data-y="3000" data-rotate="0" data-scale="1">
+        <h2><span class="huge">92.7%</span><br>of people between 14 and 49 are using the internet</h2>
+        <aside class="footnote">*ARD/ZDF Nonliner-Studie 2011</aside>
+    </div>
+
+    <div id="stats3" class="step" data-x="1800" data-y="3000" data-rotate="0" data-scale="1">
+        <h2><span class="huge icon-arrow-left"></span><br>Those people will get old!</h2>
+    </div>
+
+    <div id="stats4" class="step" data-x="1000" data-y="4000" data-rotate="0" data-scale="1">
+        <h2 style="font-size: 2em;"><span class="icon-user"></span><span class="icon-user"></span><span class="icon-user"></span><span class="icon-user" style="color:#000; border: 3px solid #000; border-width: 3px 0; background-color: #fff; border-radius: .15em;"></span><span class="icon-user"></span><span class="icon-user"></span><span class="icon-user"></span></h2>
+        <p>1 out of 7 people (or 15%)<br>is permanently disabled*</p>
+        <aside class="footnote">* <a href="http://www.who.int/mediacentre/factsheets/fs352/en/index.html">World Health Organization</a></aside>
+    </div>
+
+    <div id="stats5" class="step" data-x="1000" data-y="5000" data-rotate="0" data-scale="1">
+        <h3>1 person knows 200 people</h3>
+
+    </div>
+
+    <div id="stats6" class="step" data-x="1000" data-y="6000">
+        <h4>We all like to talk about our new car with our friends.</h4>
+    </div>
+
+    <div id="stats7" class="step" data-x="1000" data-y="7000">
+        <h4>And we like to invite others to watch the big game on our big screen.</h4>
+    </div>
+    <div id="stats8" class="step" data-x="1000" data-y="8000">
+        <h4>And we all use social networks:</h4>
+        <ul>
+            <li><span class="icon-facebook-sign"></span> Facebook</li>
+            <li><span class="icon-twitter-sign"></span> Twitter</li>
+            <li><span class="icon-github-sign"></span> Github</li>
+            <li><span class="icon-linkedin-sign"></span> LinkedIn</li>
+            <li><span class="icon-volume-up"></span> Calling grandma</li>
+        </ul>
+    </div>
+    <div id="stats9" class="step" data-x="1000" data-y="9000">
+        <p>Those are real recommendations,<br>that may convert to sales.</p>
+    </div>
+
+<!--     <div id="stats10" class="step" data-x="1000" data-y="10000">
+        <h4>BIZNISS!</h4>
+        <img src="img/business.jpg" alt="">
+    </div> -->
+
+<!-- <noscript> No Solution -->
+
+<!--
+
+
+* XXX Multimedia
+* XXX Webfonts
+* XXX Animationen -> Madmanimation
+* JS -> Maisonary -> Filter Isotope -> Pinterest Fontfont
+* Disabled don’t sit in their rooms and look out of their windows.
+* E-Commerce –> Disabled people buy presents, for their non-disabled people, too.
+* It’s not „Us“ + „Them“ -> Chris Bayerlein -> Video
+* XXX Chris Heilmann -> Community -> a11y video player
+* GitHub -> a11y tipps
+* There are great plugins and sources -> Sources
+* XXX HTML
+* A11y is only hard in the beginning
+* Who of you knows someone who is disabled -> 15% worldwide are disable 1 out of 6 -> designedbyblind, marcoinenglish, vick08, mollydotcom
+* XXX RWD -> breakpoints in em -> Schriftgrößen -> vh, vw
+* Future
+* Fullscreen
+* A Bad Browser is no disability, a bad screenreader isn’t, too.
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="letstalk" class="step" data-x="3000" data-y="0" data-rotate="0" data-z="1000" data-scale="2">
+        <h2>
+            Let’s talk about<br>
+            web accessibiliy.
+        </h2>
+    </div>
+
+    <div id="webaccessibility" class="step" data-x="3000" data-rotate="0" data-scale="1">
+        <blockquote class="twitter-tweet tw-align-center"><p>Twitterpoll: Finish the sentence honestly: "When I hear the word 'accessibility' I feel ..."</p>&mdash; Molly E. Holzschlag (@mollydotcom) <a href="https://twitter.com/mollydotcom/status/190074222440222721" data-datetime="2012-04-11T13:50:00+00:00">April 11, 2012</a></blockquote>
+    </div>
+
+    <div class="step" data-x="3000" data-y="200" data-rotate="0" data-scale="1">
+        <blockquote class="twitter-tweet tw-align-center" data-in-reply-to="190074222440222721"><p>@<a href="https://twitter.com/mollydotcom">mollydotcom</a> honestly? - Hassled.</p>&mdash; Paul Boag (@boagworld) <a href="https://twitter.com/boagworld/status/190074357488431104" data-datetime="2012-04-11T13:50:32+00:00">April 11, 2012</a></blockquote>
+    </div>
+
+    <div class="step" data-x="3000" data-y="450" data-rotate="0" data-scale="1">
+        <blockquote class="twitter-tweet tw-align-center" data-in-reply-to="190074222440222721"><p>@<a href="https://twitter.com/mollydotcom">mollydotcom</a> stressed.</p>&mdash; Gareth Clubb (@digitalclubb) <a href="https://twitter.com/digitalclubb/status/190074527470977025" data-datetime="2012-04-11T13:51:13+00:00">April 11, 2012</a></blockquote>
+    </div>
+
+    <div class="step" data-x="3000" data-y="700" data-rotate="0" data-scale="1">
+        <blockquote class="twitter-tweet tw-align-center"><p>'Pressure'- @<a href="https://twitter.com/mollydotcom">mollydotcom</a> Twitterpoll: Finish the sentence honestly: "When I hear the word 'accessibility' I feel ..."</p>&mdash; Dennis Deacon (@deconspray) <a href="https://twitter.com/deconspray/status/190074902919913473" data-datetime="2012-04-11T13:52:42+00:00">April 11, 2012</a></blockquote>
+    </div>
+
+    <div class="step" data-x="3000" data-y="950" data-rotate="0" data-scale="1">
+        <blockquote class="twitter-tweet tw-align-center" data-in-reply-to="190074222440222721"><p>@<a href="https://twitter.com/mollydotcom">mollydotcom</a> "cringeworthy" lol</p>&mdash;  Caroline Murphy (@blueocto) <a href="https://twitter.com/blueocto/status/190075075486162944" data-datetime="2012-04-11T13:53:24+00:00">April 11, 2012</a></blockquote>
+    </div>
+
+    <div class="step" data-x="3000" data-y="1200" data-rotate="0" data-scale="1">
+        <blockquote class="twitter-tweet tw-align-center" data-in-reply-to="190074222440222721"><p>@<a href="https://twitter.com/mollydotcom">mollydotcom</a> Confused, b/c WordPress free dotcom doesn't tell me how to do that properly.</p>&mdash; Mike Cane (@mikecane) <a href="https://twitter.com/mikecane/status/190075242054561792" data-datetime="2012-04-11T13:54:03+00:00">April 11, 2012</a></blockquote>
+    </div>
+
+    <div class="step" data-x="3000" data-y="1450" data-rotate="0" data-scale="1">
+        <blockquote class="twitter-tweet tw-align-center" data-in-reply-to="190074222440222721"><p>@<a href="https://twitter.com/mollydotcom">mollydotcom</a> angry about myself and almost everybody actually...</p>&mdash; Alain Couthures (@AlainCouthures) <a href="https://twitter.com/AlainCouthures/status/190075504517324801" data-datetime="2012-04-11T13:55:06+00:00">April 11, 2012</a></blockquote>
+    </div>
+    <div class="step" data-x="3000" data-y="1700" data-rotate="0" data-scale="1">
+        <blockquote class="twitter-tweet tw-align-center" data-in-reply-to="190074222440222721"><p>@<a href="https://twitter.com/mollydotcom">mollydotcom</a> Ashamed.</p>&mdash; Chris Ford (@ctford) <a href="https://twitter.com/ctford/status/190082575207895040" data-datetime="2012-04-11T14:23:12+00:00">April 11, 2012</a></blockquote>
+    </div>
+
+
+    <div id="pushups" class="step" data-x="3000" data-y="2700" data-rotate="0" data-scale="1">
+        <style>
+        #pushups video {display:block; margin: 0 auto;}
+        </style>
+        <video controls>
+            <source src="img/pushups.webm" type="video/webm">
+        </video>
+    </div>
+
+    <div id="notthathard" class="step" data-x="3000" data-y="3500" data-rotate="0" data-scale="1">
+        <h2>It’s not that hard!</h2>
+    </div>
+
+<!--
+
+    <div class="step" data-x="3000" data-y="1950" data-rotate="0" data-scale="1">
+        <blockquote class="twitter-tweet tw-align-center" data-in-reply-to="190074222440222721"><p>@<a href="https://twitter.com/mollydotcom">mollydotcom</a> A sense of responsibility.</p>&mdash; Di Turner (@m00min) <a href="https://twitter.com/m00min/status/190076610572066816" data-datetime="2012-04-11T13:59:30+00:00">April 11, 2012</a></blockquote>
+    </div>
+
+    <div class="step" data-x="3000" data-y="2200" data-rotate="0" data-scale="1">
+        <blockquote class="twitter-tweet tw-align-center" data-in-reply-to="190074222440222721"><p>@<a href="https://twitter.com/mollydotcom">mollydotcom</a> Ready to fight the good fight.</p>&mdash; Steve Marshall (@SteveMarshall) <a href="https://twitter.com/SteveMarshall/status/190074330695208960" data-datetime="2012-04-11T13:50:26+00:00">April 11, 2012</a></blockquote>
+    </div>
+-->
+   <!--  <div id="what" class="step" data-x="3000" data-y="2700" data-rotate="0" data-z="0" data-scale="1">
+        <blockquote>
+            <p>The power of the Web is in its <strong>universality</strong>.<br>
+            <strong>Access by everyone</strong> regardless of disability <strong>is an essential aspect</strong>.</p>
+        </blockquote>
+        <p class="quotesrc">– Tim Berners Lee</p>
+    </div>
+
+    <div id="brain+heart" class="step" data-x="3000" data-y="3700" data-scale="1">
+        <img src="img/brain.svg" alt="Brain"> + <img class="pulse" src="img/heart.svg" alt="Heart">
+    </div> -->
+
+    <div id="basica11yprinciples" class="step" data-x="5000" data-y="0" data-scale="1">
+       <!-- <h2>What are the <br><strong>most important aspects</strong><br> of web accessibility?</h2> -->
+       <h2>Basic Accessibility Principles</h2>
+    </div>
+
+    <!-- <div id="what3" class="step" data-x="3500" data-y="4100" data-rotate-y="180" data-scale="1">
+        <ul>
+            <li>Perceivable</li>
+            <li>Operable</li>
+            <li>Understandable</li>
+            <li>Robust</li>
+        </ul>
+    </div> -->
+
+
+    <div id="perceivable" class="step" data-x="5000" data-y="1000" data-rotate="90" data-scale="1">
+            <h3><i class="icon-eye-open"></i> Perceivable</h3>
+            <ul class="classic">
+                <li>Keep things readable</li>
+                <li>Don’t differenciate by color</li>
+                <li>Contrasts</li>
+            </ul>
+    </div>
+    <div id="operable" class="step" data-x="5000" data-y="2000" data-rotate="180"  data-scale="1">
+            <h3><i class="icon-pencil"></i> Operable</h3>
+            <ul class="classic">
+                <li>Things have to work without a <del>pointing device</del> <ins>mouse</ins></li>
+                <li>Don’t interfere with the default browser behavior</li>
+            </ul>
+    </div>
+    <div id="understandable" class="step" data-x="5000" data-y="3000" data-rotate="270" data-scale="1">
+            <h3><i class="icon-thumbs-up"></i> Understandable</h3>
+            <ul class="classic">
+                <li>Use consistent navigation</li>
+                <li>Structure should enhance the use of the site</li>
+                <li>Use simple and plain language</li>
+                <li>Clear objectives</li>
+            </ul>
+    </div>
+    <div id="robust" class="step" data-x="5000" data-y="4000" data-rotate="360" data-scale="1">
+            <h3><i class="icon-lock"></i> Robust</h3>
+            <ul class="classic">
+               <li>Allow users to change the content in any way they like it</li>
+               <li>Font size</li>
+               <li>Device Independence</li>
+            </ul>
+    </div>
+
+    <div id="hns" class="step" data-x="7000" data-y="0" data-z="0" data-scale="1">
+        <h2>What about that<br>hot new shit?</h2>
+    </div>
+
+
+
+<!--
+    <div id="hns-html5" class="step" data-x="7000" data-y="700" data-z="0" data-scale="1">
+        <h3>HTML5 (Semantics)</h3>
+    </div>
+
+    <div id="hns-ria" class="step" data-x="7000" data-y="700" data-z="0" data-scale="1">
+        <h3>Rich Apps</h3>
+    </div>
+
+    <div id="noscript" class="step" data-x="7000" data-y="3000" data-z="0" data-scale="1">
+        <p>&lt;noscript> is no solution</p>
+    </div>
+
+    <div id="javascriptandaria" class="step" data-x="7000" data-y="3400" data-z="0" data-scale="1">
+        <p>JavaScript and ARIA can do amazing things to help people with disabilities.</p>
+    </div>
+
+ -->
+
+
+    <div id="hns-animation" class="step" data-x="7000" data-y="750" data-rotate="25" data-scale="1">
+        <h3>CSS Animation</h3>
+        <p>If extensively used, they could hide content from non-visual users.</p>
+    </div>
+
+    <div id="hns-madmanimation" class="step" data-x="7000" data-y="1500" data-rotate="50" data-scale="1">
+        <h3>Madmanimation</h3>
+        <p>
+            <a href="http://animatable.com/demos/madmanimation/" target="_blank">http://animatable.com/demos/madmanimation/</a>
+        </p>
+        <img width="700" src="img/madmanimation-js.png" alt="Screenshot of the madmanimation animation">
+    </div>
+
+    <div id="hns-madmanimation2" class="step" data-x="7000" data-y="2250"  data-rotate="75" data-scale="1">
+        <img src="img/madmanimation-nojs.png" alt="Text description of the madmanimation animation">
+    </div>
+
+    <div id="hns-webfonts" class="step" data-x="7000" data-y="3000"  data-rotate="100" data-scale="1">
+        <h3>Webfonts</h3>
+        <p>Awesome! — But look for legible typefaces!</p>
+    </div>
+
+    <div id="hns-webfonts2" class="step" data-x="7000" data-y="3750"  data-rotate="125" data-scale="1">
+        <p>Beware of JavaScript that alters font rendering,<br>like typeface.js, fittext.js or kern.js.</p>
+    </div>
+
+    <div id="hns-multimedia" class="step" data-x="7000" data-y="4500"  data-rotate="150" data-scale="1">
+        <h3>Multimedia</h3>
+        <p>I mean &lt;audio> and &lt;video>.</p>
+    </div>
+
+    <div id="hns-multimedia2" class="step" data-x="7000" data-y="5250"  data-rotate="175" data-scale="1">
+        <p>They don’t work with the keyboard!</p>
+        <p><img src="img/notagoodsign.jpg" alt="Sign which says “not a good sign”"></p>
+        <p>But it’s easy to provide accessible buttons.</p>
+    </div>
+
+    <div id="hns-multimedia3" class="step" data-x="7000" data-y="6000"  data-rotate="200" data-scale="1">
+        <h3><a href="http://praegnanz.de/html5video/">VideoSWS</a></h3>
+        <p><img src="img/videosws.png" alt="" width="700"></p>
+    </div>
+
+     <div id="hns-multimedia4" class="step" data-x="7000" data-y="6750"  data-rotate="225" data-scale="1">
+        <h3><a href="http://icant.co.uk/easy-youtube/?http://www.youtube.com/watch?v=9i0-btCTdN8">Easy YouTube</a></h3>
+        <p>By Chris Heilmann</p>
+        <p><img src="img/easy-youtube.png" alt=""></p>
+    </div>
+
+
+    <div id="rwd" class="step" data-x="7000" data-y="7500"  data-rotate="250" data-scale="1">
+        <h3>RWD</h3>
+        <p>Responsive Web Design</p>
+        <img src="img/mediaqueri.es.png" alt="" width="90%">
+    </div>
+
+
+    <div id="rwd1" class="step" data-x="7000" data-y="8250"  data-rotate="275" data-scale="1">
+        <p>Never use</p>
+        <pre><code>text-size-adjust:none;</code></pre>
+        <p>Use</p>
+        <pre><code>text-size-adjust:100%;</code></pre>
+        <p>instead.</p>
+    </div>
+
+    <div id="rwd2" class="step" data-x="7000" data-y="9000"  data-rotate="300" data-scale="1">
+        <h4>Great for people with vision impairments.</h4>
+        <!-- <p>Try your <a href="http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/">breakpoints in em.</a></p> -->
+        <p>Don’t make too confusing changes to the layout.</p>
+    </div>
+
+    <div id="rwd3" class="step" data-x="7000" data-y="9750" data-rotate="325" data-scale="1">
+        <h4><a href="http://snook.ca/archives/html_and_css/vm-vh-units">vw and vh units</a></h4>
+        <p>That’s viewport width and height.</p>
+    </div>
+
+
+    <div id="html-semantics" class="step" data-x="7000" data-y="10500" data-scale="1" data-rotate="325">
+        <h3>HTML5 Semantics</h3>
+        <p>All HTML5 elements are accessible.</p>
+    </div>
+
+    <div id="html-semantics-2" class="step" data-x="7000" data-y="11250" data-scale="1" data-rotate="350">
+        <p><code>&lt;nav></code> <span class="icon-arrow-right" title="is represented as a"></span> <code>&lt;div></code></p>
+        <img src="img/notagoodsign.jpg" alt="A sign saying ”This is not a good sign.“">
+    </div>
+
+    <div id="html-semantics-3" class="step" data-x="7000" data-y="12000" data-scale="1" data-rotate="375">
+        <p>New elements are not enriched with<br> <strong>additional information</strong>*.</p>
+        <p><small>* Firefox starts integrating those</small></p>
+    </div>
+
+    <div id="html-semantics-4" class="step" data-x="7000" data-y="12750" data-scale="1" data-rotate="400">
+        <h3><abbr title="Web accessibility innitiative">WAI</abbr>-<abbr title="Accessible Rich Internet Applications">ARIA</abbr> to the rescue!</h3>
+        <p><code>&lt;nav role="navigation"></code></p>
+        <p class="huge icon-check"></p>
+    </div>
+
+    <div id="html-semantics-5" class="step" data-x="7000" data-y="13500" data-scale="1"data-rotate="425">
+        <h3>Polyfill</h3>
+        <p><a href="https://github.com/yatil/accessifyhtml5.js">https://github.com/yatil/accessifyhtml5.js</a></p>
+        <p><img width="500" src="img/accessifyhtml5.js.png" alt=""></p>
+    </div>
+
+
+    <div id="closingnotes" class="step" data-x="8500" data-y="0" data-scale="1">
+        <h3>Collaborate!</h3>
+        <ul class="classic">
+            <li>Put your stuff on <span class="icon-github-sign"></span> Github!</li>
+            <li>Ask questions!</li>
+            <li>Follow those people:
+                <ul>
+                    <li><a href="http://twitter.com/designedbyblind"><span class="icon-twitter-sign"></span>DesignedByBlind</a></li>
+                    <li><a href="http://twitter.com/vick08"><span class="icon-twitter-sign"></span>vick08</a></li>
+                    <li><a href="http://twitter.com/marcoinenglish"><span class="icon-twitter-sign"></span>MacoInEnglish</a></li>
+                </ul>
+            </li>
+            <li>Ask questions!</li>
+            <li>Ask questions!</li>
+        </ul>
+    </div>
+
+    <div id="thankyou" class="step" data-x="10000" data-y="0" data-scale="1">
+        <h3>Thank you!</h3>
+        <p>Now grab some…</p>
+        <p><img src="img/beer.jpg" alt="beer. There actually is a bear on the photo."></p>
+        <p>Twitter me: @yatil ++ #a11yfu</p>
+    </div>
+
+<!-- http://blog.cloudfour.com/the-ems-have-it-proportional-media-queries-ftw/
+
+
+
 
     <!--
-        
-        This element introduces rotation.
-        
-        Notation shouldn't be a surprise. We use `data-rotate="90"` attribute, meaning that this
-        element should be rotated by 90 degrees clockwise.
-        
-    -->
-    <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
-        <p>It's a <strong>presentation tool</strong> <br/>
-        inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
-        and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
+
+    <div id="tiny" class="step" data-x="2825" data-y="2325" data-scale="1">
+        <h2><i class="icon-align-justify"></i> layers of accessibility</h2>
     </div>
 
-    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
-        <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
+    <div id="htmlcssjs" class="step" data-x="2825" data-y="2325" data-z="0" data-scale="1">
+        <h3>HTML/CSS/JS</h3>
     </div>
 
-    <!--
-        
-        And now it gets really exiting! We move into third dimension!
-        
-        Along with `data-x` and `data-y`, you can define the position on third (Z) axis, with
-        `data-z`. In the example below we use `data-z="-3000"` meaning that element should be
-        positioned far away from us (by 3000px).
-        
-    -->
-    <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
-        <p>and <b>tiny</b> ideas</p>
+    <div id="browsers" class="step" data-x="2825" data-y="2325" data-z="1000" data-scale="1">
+        <h3>Browsers</h3>
+        <p>…interpret HTML, CSS <strong class="pulse">and JavaScript</strong> to create a representation of the website.</p>
+        <p>That representation is on the screen and in the memory.</p>
     </div>
 
-    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
-        <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
+    <div id="a11yapi" class="step" data-x="2825" data-y="2325" data-z="2000" data-scale="1">
+        <h3>Accessibility API</h3>
     </div>
 
-    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
-        <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
+    <div id="screenreader" class="step" data-x="2825" data-y="2325" data-z="3000" data-scale="2">
+        <h3>Screenreader <small>(any assistive technology)</small></h3>
+    </div>
+
+    <div id="bugs" class="step" data-x="2825" data-y="3325" data-z="3000" data-scale="1">
+        <p>There may be bugs on any of these layers.</p>
+    </div>
+
+    <div id="fflists" class="step" data-x="2825" data-y="4325" data-z="3000" data-scale="1">
+        <h1>Exhibit: Firefox & Lists</h1>
+        <blockquote>
+           <p style="color:black;">If there are no list bullets, we shouldn’t read it out as a list. So let us hide that information from the Accessibility API.</strong></p>
+        </blockquote>
+    </div>
+
+    <div id="fflists2" class="step" data-x="2825" data-y="5325" data-z="3000" data-scale="3.5">
+        <h2 class="huge">WTF<small>???</small></h2>
+    </div>
+
+    <div id="fflists4" class="step" data-x="2825" data-y="6325" data-z="3000" data-scale="3">
+        <p>Dear Mozilla, here is a short reminder how web technology work:</p>
+        <table>
+            <tr>
+                <th>HTML</th>
+                <th>CSS</th>
+                <th>JavaScript</th>
+            </tr>
+            <tr>
+                <td>Structure &amp; Content</td>
+                <td>Visual Apperance</td>
+                <td>Behavior</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="happylittletrees" class="step" data-x="2825" data-y="8000" data-z="3000" data-scale="3">
+        <img src="img/happytrees.jpg" alt="Sign, showing Bob Ross, saying “Happy Little Trees Ahead”.">
+        <p class="source">Source: <a href="http://cheezburger.com/4447241216">cheezburger.com</a></p>
+    </div>
+
+    <div id="offtothehotshit" class="step" data-x="5000" data-y="2300" data-scale="1">
+        <h2>Now off to the hot shit!</h2>
+        <img src="img/lovinit.jpg" alt="McDonalds ad claim “I’m lovin’ it” enhanced by the two letters sh to form “I’m lovin’ shit”.">
+    </div>
+
+    <div id="html" class="step" data-x="5000" data-y="3300" data-scale="1">
+        <h2><img src="img/html5.svg" width="300" alt="HTML"></h2>
+    </div>
+
+
+    <div id="html-semantics" class="step" data-x="5000" data-y="4300" data-scale="1">
+        <h2><img src="img/html5_semantics.svg" width="300" alt="HTML"><br>Semantics</h2>
+    </div>
+
+    <div id="html-semantics-1" class="step" data-x="5000" data-y="5300" data-scale="1">
+        <p>All HTML5 elements are accessible.</p>
+    </div>
+
+    <div id="html-semantics-2" class="step" data-x="5000" data-y="6300" data-scale="1">
+        <p><code>&lt;nav></code> <span class="icon-arrow-right" title="is represented as a"></span> <code>&lt;div></code></p>
+        <img src="img/notagoodsign.jpg" alt="A sign saying ”This is not a good sign.“" style="visibility: hidden;">
+    </div>
+
+    <div id="html-semantics-2-b" class="step invisible" data-x="5000" data-y="6300" data-scale="1">
+        <p style="visibility: hidden;"><code>&lt;nav></code> <span class="icon-arrow-right" title="is represented as a"></span> <code>&lt;div></code></p>
+        <img src="img/notagoodsign.jpg" alt="A sign saying ”This is not a good sign.“">
+    </div>
+
+    <div id="html-semantics-3" class="step" data-x="5000" data-y="7300" data-scale="1">
+        <p>New elements are not enriched with<br> <strong>additional information</strong>*.</p>
+        <p><small>* Firefox starts integrating those</small></p>
+    </div>
+
+    <div id="html-semantics-4" class="step" data-x="5000" data-y="8300" data-scale="1">
+        <h3><abbr title="Web accessibility innitiative">WAI</abbr>-<abbr title="Accessible Rich Internet Applications">ARIA</abbr> to the rescue!</h3>
+        <p><code>&lt;nav role="navigation"></code></p>
+        <p class="huge icon-check"></p>
     </div>
 
     <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
@@ -222,38 +634,39 @@
         <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
     </div>
 
-    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
+    <div id="one-more-thing" class="step" data-x="10000" data-y="4000" data-scale="2">
         <p>one more thing...</p>
     </div>
+-->
 
     <!--
-        
+
         And the last one shows full power and flexibility of impress.js.
-        
+
         You can not only position element in 3D, but also rotate it around any axis.
         So this one here will get rotated by -40 degrees (40 degrees anticlockwise) around X axis and
         10 degrees (clockwise) around Y axis.
-        
+
         You can of course rotate it around Z axis with `data-rotate-z` - it has exactly the same effect
         as `data-rotate` (these two are basically aliases).
-        
+
     -->
-    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+    <!-- <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
         <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
         <span class="footnote">* beat that, prezi ;)</span>
-    </div>
+    </div> -->
 
     <!--
-        
+
         So to make a summary of all the possible attributes used to position presentation steps, we have:
-        
+
         * `data-x`, `data-y`, `data-z` -- they define the position of **the center** of step element on
             the canvas in pixels; their default value is 0;
         * `data-rotate-x`, `data-rotate-y`, 'data-rotate-z`, `data-rotate` -- they define the rotation of
             the element around given axis in degrees; their default value is 0; `data-rotate` and `data-rotate-z`
             are exactly the same;
         * `data-scale` -- defines the scale of step element; default value is 1
-        
+
     -->
     <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
     </div>
@@ -261,122 +674,127 @@
 </div>
 
 <!--
-    
+
     Hint is not related to impress.js in any way.
-    
+
     But it can show you how to use impress.js features in creative way.
-    
+
     When the presentation step is shown (selected) it's element get's the class of "active" and `#impress` root
     element get's the class based on active step id `step-ID` (where ID is the step id)... It probably is not
     so clear because of all these IDs in here, so for example when the first step (the one with id of `bored`)
     is active, `#impress` element get a class of `step-bored`.
-    
+
     This class is used by this hint below. Check CSS file to see how it's shown with delayed CSS animation.
-    
+
     ...
-    
+
     And when it comes to this piece of JavaScript below ... kids, don't do this at home ;)
     It's just a quick and dirty workaround to get different content for touch devices.
     In a real world it should be at least placed in separate JS file ... and the touch content should be
     probably just hidden somewhere in HTML, not hard-coded in the script.
-    
+
     Just sayin' ;)
-    
+
 -->
 <div class="hint">
     <p>Use a spacebar or arrow keys to navigate</p>
 </div>
 <script>
-if ("ontouchstart" in document.documentElement) { 
+if ("ontouchstart" in document.documentElement) {
     document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
 }
 </script>
 
 <!--
-    
+
     Last, but not least.
-    
+
     To make all described above really work, you need to include impress.js in the page.
     I strongly encourage to minify it first.
-    
+
     In here I just include full source of the script to make it more readable.
-    
+
     You also need to call a `impress()` function to initialize impress.js presentation.
     And you should do it in the end of your document. Not only because it's a good practice, but also
     because it should be done when the whole document is ready.
     Of course you can wrap it in any kind of "DOM ready" event, but I was too lazy to do so ;)
-    
+
 -->
 <script src="js/impress.js"></script>
 <script>impress();</script>
+<script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <!--
-    
+
     The `impress()` function also gives you access to API to control the presentation.
-    
+
     Just store the result of the call:
-    
+
         var api = impress();
-    
+
     and you will get three functions you can call:
-    
+
         `api.next()` - moves to next step of the presentation,
         `api.prev()` - moves to previous step of the presentation
         `api.goto( stepElement ) - moves the presentation to given step element (the DOM element of the step).
-    
+
     You can also simply call `impress()` again to get the API, so `impress().next()` is also allowed.
     Don't worry, it wont initialize the presentation again.
-    
+
     For some example uses of this API check the last part of the source of impress.js where the API
     is used in event handlers.
-    
+
 -->
 
+
+ <script>
+    document.querySelector('#pushups video').currentTime = 20;
+</script>
 </body>
 </html>
 
 <!--
-    
+
     Now you know more or less everything you need to build your first impress.js presentation, but before
     you start...
-    
+
     Oh, you've already cloned the code from GitHub?
-    
+
     You have it open in text editor?
-    
+
     Stop right there!
-    
+
     That's not how you create awesome presentations. This is only a code. Implementation of the idea that
     first needs to grow in your mind.
-    
+
     So if you want to build great presentation take a pencil and piece of paper. And turn off the computer.
-    
+
     Sketch, draw and write. Brainstorm your ideas on a paper. Try to build a mind-map of what you'd like
     to present. It will get you closer and closer to the layout you'll build later with impress.js.
-    
+
     Get back to the code only when you have your presentation ready on a paper. It doesn't make sense to do
     it earlier, because you'll only waste your time fighting with positioning of useless points.
-    
-    If you think I'm crazy, please put your hands on a book called "Presentation Zen". It's all about 
+
+    If you think I'm crazy, please put your hands on a book called "Presentation Zen". It's all about
     creating awesome and engaging presentations.
-    
+
     Think about it. 'Cause impress.js may not help you, if you have nothing interesting to say.
-    
+
 -->
 
 <!--
-    
+
     Are you still reading this?
-    
+
     For real?
-    
+
     I'm impressed! Feel free to let me know that you got that far (I'm @bartaz on Twitter), 'cause I'd like
     to congratulate you personally :)
-    
+
     But you don't have to do it now. Take my advice and take some time off. Make yourself a cup of coffee, tea,
     or anything you like to drink. And raise a glass for me ;)
-    
+
     Cheers!
-    
+
 -->
 
